@@ -33,3 +33,7 @@ This should generate a `replay` folder with a test that imports that block. Note
 Running `cargo test --release -- --nocapture` show that import takes 750ms on M1 MAX laptop. If we assume 1.5x performance boost from using native and another 1.5x from the faster hardware compared to the reference one, we should still be within of allowed 2s execution time.
 
 ## Open questions
+
+* why are the blocks actually take more than 2s on the archive node to execute? is it coming from wasm vs native, CPU/mem differences?
+* I've noticed that after rerunning the execution locally, it takes around 550ms (vs 750ms). this suggests that the execution is IO bound and caching helps?
+* why did it take substantially longer of validators to import than 2s? CPU starvation due to PVF checks?
