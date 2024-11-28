@@ -1,0 +1,19 @@
+[package]
+name = "replay"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+runtime = { package = "staging-kusama-runtime", git = "https://github.com/polkadot-fellows/runtimes.git", rev = "v1.3.4" }
+
+[dev-dependencies]
+# Need to use * everywhere since we want to use the lockfile of the dep.
+frame-remote-externalities = { version = "*" }
+tokio = { version = "*", features = ["macros"] }
+sp-tracing = { version = "*" }
+sp-core = "*"
+frame-support = "*"
+frame-system = "*"
+codec = { package = "parity-scale-codec", version = "*" }
+log = "*"
+serde_json = "*"
