@@ -30,13 +30,13 @@ fn replay(block: Block) {
 async fn main() {
 	sp_tracing::try_init_simple();
 
-	let raw_block = File::open("block-0xfd120b1ebf45b363b4bd4fa212f8f79acc52797dfa04fff873009ea6314bc8be.raw")
+	let raw_block = File::open("lfs/block-0xfd120b1ebf45b363b4bd4fa212f8f79acc52797dfa04fff873009ea6314bc8be.raw")
 		.expect("Block file not found");
     let reader = BufReader::new(raw_block);
 	let block: Block = serde_json::from_reader(reader)
 		.expect("Block decoding failed");
 	
-	let state_snapshot = SnapshotConfig::new("snap-0xb131e2457a0bd3ba3395319c84715cc136354cb31e1901e731a1de1c82fc3a68.raw");
+	let state_snapshot = SnapshotConfig::new("lfs/snap-0xb131e2457a0bd3ba3395319c84715cc136354cb31e1901e731a1de1c82fc3a68.raw");
 	Builder::<Block>::default()
 		.mode(Mode::Offline(
 			OfflineConfig { state_snapshot },
