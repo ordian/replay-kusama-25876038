@@ -35,10 +35,10 @@ Running `cargo test --release -- --nocapture` show that import takes 750ms on M1
 ## Open questions
 
 * why are the blocks actually take more than 2s on the archive node to execute? is it coming from wasm vs native, CPU/mem differences?
-* I've noticed that after rerunning the execution locally, it takes around 550ms (vs 750ms). this suggests that the execution is IO bound and caching helps?
+* I've noticed that after rerunning the execution locally, it takes around 550ms (vs 750ms). this suggests that the execution is IO bound and caching helps? or could it be CPU branch prediction?
 * why did it take substantially longer of validators to import than 2s? CPU starvation due to PVF checks?
 
 ## Next steps
 
 - try rerunning on reference hardware (the archive node seems underspecced and was syncing in parallel with the bench)
-- try increasing the trie cache size
+- try increasing the trie cache size (`--trie-cache-size 1073741824`) and see how the results are different
