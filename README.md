@@ -42,3 +42,20 @@ Running `cargo test --release -- --nocapture` show that import takes 750ms on M1
 
 - try rerunning on reference hardware (the archive node seems underspecced and was syncing in parallel with the bench)
 - try increasing the trie cache size (`--trie-cache-size 1073741824`) and see how the results are different
+
+## Benchmark results on the reference hardware
+
+2024-12-07 10:21:22 Essential task `babe-worker` failed. Shutting down service.
+2024-12-07 10:21:53 Block 25876038 with  4921 tx used 152.00% of its weight ( 3,039,966,059 of  1,999,979,786 ns) - OVER WEIGHT!
+2024-12-07 10:22:21 Block 25876039 with  4561 tx used 141.43% of its weight ( 2,828,530,900 of  2,000,021,479 ns) - OVER WEIGHT!
+2024-12-07 10:22:52 Block 25876040 with  5072 tx used 151.91% of its weight ( 3,037,951,145 of  1,999,873,477 ns) - OVER WEIGHT!
+2024-12-07 10:23:06 Block 25876041 with  2318 tx used 205.63% of its weight ( 1,422,605,896 of    691,843,940 ns) - OVER WEIGHT!
+2024-12-07 10:23:32 Block 25876042 with  4450 tx used 130.29% of its weight ( 2,605,683,476 of  1,999,903,633 ns) - OVER WEIGHT!
+2024-12-07 10:23:59 Block 25876043 with  4785 tx used 137.75% of its weight ( 2,754,867,155 of  1,999,876,726 ns) - OVER WEIGHT!
+2024-12-07 10:24:20 Block 25876044 with  3592 tx used 139.73% of its weight ( 2,029,712,277 of  1,452,554,205 ns) - OVER WEIGHT!
+2024-12-07 10:24:45 Block 25876045 with  4870 tx used 131.49% of its weight ( 2,485,339,996 of  1,890,098,920 ns) - OVER WEIGHT!
+2024-12-07 10:25:07 Block 25876046 with  4595 tx used 113.67% of its weight ( 2,273,344,776 of  1,999,945,390 ns) - OVER WEIGHT!
+2024-12-07 10:25:30 Block 25876047 with  4552 tx used 115.02% of its weight ( 2,300,202,614 of  1,999,877,316 ns) - OVER WEIGHT!
+2024-12-07 10:25:54 Block 25876048 with  4914 tx used 117.71% of its weight ( 2,354,063,571 of  1,999,918,739 ns) - OVER WEIGHT!
+
+
