@@ -45,6 +45,9 @@ Running `cargo test --release -- --nocapture` show that import takes 750ms on M1
 
 ## Benchmark results on the reference hardware
 
+### Without trie cache specified
+
+```
 2024-12-07 10:21:22 Essential task `babe-worker` failed. Shutting down service.
 2024-12-07 10:21:53 Block 25876038 with  4921 tx used 152.00% of its weight ( 3,039,966,059 of  1,999,979,786 ns) - OVER WEIGHT!
 2024-12-07 10:22:21 Block 25876039 with  4561 tx used 141.43% of its weight ( 2,828,530,900 of  2,000,021,479 ns) - OVER WEIGHT!
@@ -57,5 +60,20 @@ Running `cargo test --release -- --nocapture` show that import takes 750ms on M1
 2024-12-07 10:25:07 Block 25876046 with  4595 tx used 113.67% of its weight ( 2,273,344,776 of  1,999,945,390 ns) - OVER WEIGHT!
 2024-12-07 10:25:30 Block 25876047 with  4552 tx used 115.02% of its weight ( 2,300,202,614 of  1,999,877,316 ns) - OVER WEIGHT!
 2024-12-07 10:25:54 Block 25876048 with  4914 tx used 117.71% of its weight ( 2,354,063,571 of  1,999,918,739 ns) - OVER WEIGHT!
+```
 
+### With `--trie-cache-size 1073741824`
 
+```
+2024-12-07 10:39:06 Block 25876038 with  4921 tx used 151.82% of its weight ( 3,036,455,416 of  1,999,979,786 ns) - OVER WEIGHT!
+2024-12-07 10:39:34 Block 25876039 with  4561 tx used 142.07% of its weight ( 2,841,359,415 of  2,000,021,479 ns) - OVER WEIGHT!
+2024-12-07 10:40:05 Block 25876040 with  5072 tx used 152.91% of its weight ( 3,058,029,670 of  1,999,873,477 ns) - OVER WEIGHT!
+2024-12-07 10:40:19 Block 25876041 with  2318 tx used 206.52% of its weight ( 1,428,800,850 of    691,843,940 ns) - OVER WEIGHT!
+2024-12-07 10:40:45 Block 25876042 with  4450 tx used 129.92% of its weight ( 2,598,229,335 of  1,999,903,633 ns) - OVER WEIGHT!
+2024-12-07 10:41:13 Block 25876043 with  4785 tx used 138.56% of its weight ( 2,771,036,946 of  1,999,876,726 ns) - OVER WEIGHT!
+2024-12-07 10:41:33 Block 25876044 with  3592 tx used 141.24% of its weight ( 2,051,534,122 of  1,452,554,205 ns) - OVER WEIGHT!
+2024-12-07 10:41:58 Block 25876045 with  4870 tx used 133.00% of its weight ( 2,513,864,983 of  1,890,098,920 ns) - OVER WEIGHT!
+2024-12-07 10:42:21 Block 25876046 with  4595 tx used 115.14% of its weight ( 2,302,642,268 of  1,999,945,390 ns) - OVER WEIGHT!
+2024-12-07 10:42:45 Block 25876047 with  4552 tx used 116.01% of its weight ( 2,319,999,074 of  1,999,877,316 ns) - OVER WEIGHT!
+2024-12-07 10:43:10 Block 25876048 with  4914 tx used 128.31% of its weight ( 2,566,181,772 of  1,999,918,739 ns) - OVER WEIGHT!
+```
